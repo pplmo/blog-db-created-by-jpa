@@ -5,6 +5,7 @@ import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.Instant;
 
@@ -18,12 +19,12 @@ import java.time.Instant;
 public class Comment {
     @Id
     private int id;
-    private int contentId;
+    @ManyToOne
+    private Content content;
     @CreatedDate
     private Instant created;
-    private String author;
-    private int authorId;
-    private int ownerId;
+    @ManyToOne
+    private User commentAuthor;
     private String mail;
     private String url;
     private String ip;
@@ -31,5 +32,6 @@ public class Comment {
     private String text;
     private String type;
     private String status;
-    private int parentCommentId;
+    @ManyToOne
+    private Comment parentComment;
 }

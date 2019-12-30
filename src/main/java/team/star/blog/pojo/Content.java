@@ -6,8 +6,14 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author mystic
@@ -33,7 +39,8 @@ public class Content {
     private Instant modified;
     private String text;
     private int orderNum;
-    private int authorId;
+    @ManyToOne
+    private User author;
     private String template;
     private String type;
     private String status;
@@ -42,4 +49,7 @@ public class Content {
     private boolean isAllowedComment;
     private boolean isAllowedPing;
     private boolean isAllowedFeed;
+    @JoinTable(name = "t_relationship", joinColumns = @JoinColumn(name = "content_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "metadata_id", referencedColumnName = "id"))
+    @ManyToMany
+    private Set<Metadata> metadataSet = new HashSet<>(16);
 }

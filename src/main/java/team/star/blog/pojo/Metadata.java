@@ -5,7 +5,10 @@ import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author mystic
@@ -23,4 +26,6 @@ public class Metadata {
     private String description;
     private int count;
     private int orderNum;
+    @ManyToMany(mappedBy = "metadataSet")
+    private Set<Content> contentSet = new HashSet<>(16);
 }
