@@ -11,7 +11,7 @@ import javax.persistence.Table;
  * @date 2019-12-15 19:44
  */
 @Data
-@Table(name = "t_comment")
+@Table(name = "t_relationship")
 @Entity
 public class Relationship {
     @Id
