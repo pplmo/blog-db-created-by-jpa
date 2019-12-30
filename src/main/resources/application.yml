@@ -1,0 +1,10 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://127.0.0.1:5432/blog
+        username: blog
+        password: blog
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+        hibernate:
+            ddl-auto: create
+        open-in-view: false
