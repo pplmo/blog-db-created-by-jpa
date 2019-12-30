@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -22,6 +23,7 @@ public class User {
     /**
      * user name, uniqueness
      */
+    @Column(unique = true, nullable = false)
     private String name;
     /**
      * user password
@@ -30,6 +32,7 @@ public class User {
     /**
      * user mail, uniqueness
      */
+    @Column(unique = true, nullable = false)
     private String mail;
     /**
      * user homepage
