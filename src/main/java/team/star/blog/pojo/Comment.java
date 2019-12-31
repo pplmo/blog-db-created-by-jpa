@@ -26,8 +26,17 @@ public class Comment {
     @ManyToOne
     private User commentAuthor;
     private String mail;
+    /**
+     * commentAuthor's homepage
+     */
     private String url;
+    /**
+     * commentAuthor's ip address
+     */
     private String ip;
+    /**
+     * commentAuthor's client, e.g. Windows Chrome
+     */
     private String agent;
     private String text;
     private String type;

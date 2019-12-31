@@ -20,18 +20,9 @@ import java.time.Instant;
 public class User {
     @Id
     private int id;
-    /**
-     * user name, uniqueness
-     */
     @Column(unique = true, nullable = false)
     private String name;
-    /**
-     * user password
-     */
     private String password;
-    /**
-     * user mail, uniqueness
-     */
     @Column(unique = true, nullable = false)
     private String mail;
     /**
@@ -42,6 +33,8 @@ public class User {
      * user screen name, i.e. nickname
      */
     private String screenName;
+    private String groupName;
+    private String authCode;
     /**
      * user account created time
      */
@@ -56,12 +49,4 @@ public class User {
      */
     @LastModifiedDate
     private Instant logged;
-    /**
-     * user group
-     */
-    private String groupName;
-    /**
-     * user authentication code
-     */
-    private String authCode;
 }
