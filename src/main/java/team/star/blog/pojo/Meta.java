@@ -14,9 +14,9 @@ import java.util.Set;
  * @date 2019-12-15 19:45
  */
 @Data
-@Table(name = "t_metadata")
+@Table(name = "t_meta")
 @Entity
-public class Metadata {
+public class Meta {
     @Id
     private int id;
     private String name;

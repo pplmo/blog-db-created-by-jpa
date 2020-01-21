@@ -45,5 +45,5 @@ public class Content {
     private User author;
     @JoinTable(name = "t_relationship", joinColumns = @JoinColumn(name = "content_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "metadata_id", referencedColumnName = "id"))
     @ManyToMany
-    private Set<Metadata> metadataSet = new HashSet<>(16);
+    private Set<Meta> metaSet = new HashSet<>(16);
 }
