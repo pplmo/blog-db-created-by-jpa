@@ -2,6 +2,9 @@ package team.star.blog.pojo;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.URL;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.validation.constraints.Email;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -19,6 +22,7 @@ import java.time.Instant;
 @Entity
 public class Comment {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int contentId;
     @CreatedDate
