@@ -4,7 +4,7 @@ spring:
         username: blog
         password: blog
     jpa:
-        database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+        database-platform: org.hibernate.dialect.PostgreSQL95Dialect
         hibernate:
             ddl-auto: create
         open-in-view: false
