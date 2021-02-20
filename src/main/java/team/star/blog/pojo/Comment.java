@@ -1,6 +1,8 @@
 package team.star.blog.pojo;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.URL;
+import javax.validation.constraints.Email;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.Entity;
@@ -21,10 +23,10 @@ public class Comment {
     private int contentId;
     @CreatedDate
     private Instant created;
-    private String author;
-    private int authorId;
-    private int ownerId;
+    private int commentAuthorId;
+    @Email
     private String mail;
+    @URL
     private String url;
     private String ip;
     private String agent;
