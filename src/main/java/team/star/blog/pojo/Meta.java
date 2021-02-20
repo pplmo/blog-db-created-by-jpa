@@ -25,6 +25,6 @@ public class Meta {
     private String description;
     private int count;
     private int orderNum;
-    @ManyToMany(mappedBy = "metadataSet")
+    @ManyToMany(mappedBy = "metaSet")
     private Set<Content> contentSet = new HashSet<>(16);
 }
