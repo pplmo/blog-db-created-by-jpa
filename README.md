@@ -1,1 +1,1 @@
-# create database by jpa
+# create a database by jpa

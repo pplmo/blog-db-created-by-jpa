@@ -1,27 +1,31 @@
 package team.star.blog.pojo;
 
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.Hibernate;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.time.Instant;
+import java.util.Objects;
 
 /**
  * @author mystic
  * @date 2019-12-15 19:44
  */
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Table(name = "t_content")
 @Entity
 public class Content {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     /**
      * content title
      */
@@ -45,4 +49,17 @@ public class Content {
     private boolean isAllowedComment;
     private boolean isAllowedPing;
     private boolean isAllowedFeed;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Content content = (Content) o;
+        return id != null && Objects.equals(id, content.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
