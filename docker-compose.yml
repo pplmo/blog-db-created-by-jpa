@@ -1,0 +1,24 @@
+version: Compose specification
+
+services:
+    db:
+        image: postgres
+        restart: always
+        environment:
+            POSTGRES_DB: blog
+            POSTGRES_USER: blog
+            POSTGRES_PASSWORD: blog
+        ports:
+            - "5432:5432"
+        volumes:
+            - postgresql:/var/lib/postgresql
+            - postgresql_data:/var/lib/postgresql/data
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - "18080:8080"
+volumes:
+    postgresql:
+    postgresql_data:
